@@ -1,13 +1,20 @@
 import type { Metadata } from "next";
-import { Bricolage_Grotesque } from "next/font/google";
+import { Crimson_Pro} from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 
-const bricolage = Bricolage_Grotesque({
-  variable: "--font-bricolage",
+const crimsonPro = Crimson_Pro({
+  variable: "--font-crimson",
   subsets: ["latin"],
+  display: "swap",
 });
+
+// const sourceSans = Source_Sans_3({
+//   variable: "--font-source",
+//   subsets: ["latin"],
+//   display: "swap",
+// });
 
 export const metadata: Metadata = {
   title: "Converso",
@@ -21,7 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${bricolage.variable} antialiased`}>
+      <body className={`${crimsonPro.variable} antialiased`}>
         <ClerkProvider appearance={{ variables: { colorPrimary: '#fe5933' }} }>
           <Navbar />
           {children}

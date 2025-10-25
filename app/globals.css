@@ -40,6 +40,11 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+
+
+
+  --font-heading: var(--font-crimson), "Times New Roman", serif;
+  --font-body: var(--font-source), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 @theme inline {
@@ -223,4 +228,16 @@ body {
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
+}
+
+
+
+
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+body, p, input, button, select, textarea {
+  font-family: var(--font-body);
 }
