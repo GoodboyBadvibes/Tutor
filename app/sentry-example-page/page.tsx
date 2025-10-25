@@ -40,7 +40,7 @@ export default function Page() {
         </h1>
 
         <p className="description">
-          Click the button below, and view the sample error on the Sentry <a target="_blank" href="https://jsmpro.sentry.io/issues/?project=4509366354247680">Issues Page</a>.
+          Click the button below, and view the sample error on the Sentry <a target="_blank" href="https://devish.sentry.io/issues/?project=4510081325137920">Issues Page</a>.
           For more details about setting up Sentry, <a target="_blank" href="https://docs.sentry.io/platforms/javascript/guides/nextjs/">read our docs</a>.
         </p>
 
@@ -48,7 +48,7 @@ export default function Page() {
           type="button"
           onClick={async () => {
             await Sentry.startSpan({
-              name: 'Example Frontend Span',
+              name: 'Example Frontend/Backend Span',
               op: 'test'
             }, async () => {
               const res = await fetch("/api/sentry-example-api");
@@ -58,6 +58,7 @@ export default function Page() {
               }
             });
           }}
+          disabled={!isConnected}
         >
           <span>
             Throw Sample Error
@@ -66,7 +67,7 @@ export default function Page() {
 
         {hasSentError ? (
           <p className="success">
-            Sample error was sent to Sentry.
+            Error sent to Sentry.
           </p>
         ) : !isConnected ? (
           <div className="connectivity-error">
@@ -146,6 +147,15 @@ export default function Page() {
 
           &:active > span {
             transform: translateY(0);
+          }
+          &:disabled > {
+            cursor:not-allowed;
+            opacity: 0.6;
+
+            & span {
+              transform: translateY(0);
+              border: none;
+            }
           }
         }
 
