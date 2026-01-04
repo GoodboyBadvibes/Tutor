@@ -17,7 +17,7 @@ const crimsonPro = Crimson_Pro({
 // });
 
 export const metadata: Metadata = {
-  title: "Converso",
+  title: "Tutor AI",
   description: "Real-time AI Teaching Platform",
 };
 
